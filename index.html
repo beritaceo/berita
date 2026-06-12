@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ✅ SEO UTAMA: Ganti Title & Description -->
+    <title>NewsCEO - Breaking News, Politics & Entertainment</title>
+    <meta name="description" content="NewsCEO delivers the latest breaking news, politics, celebrity gossip, and entertainment updates. Your trusted source for headlines and trending stories.">
+    <meta name="keywords" content="breaking news, politics, celebrity news, entertainment, headlines, NewsCEO">
+    <meta name="author" content="NewsCEO">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ✅ OPEN GRAPH (Untuk Share di Sosmed) -->
+    <meta property="og:title" content="NewsCEO - Breaking News & Entertainment">
+    <meta property="og:description" content="Latest breaking news, politics, and celebrity updates.">
+    <meta property="og:url" content="https://newsceo.github.io/news/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://newsceo.github.io/news/og-image.jpg"> <!-- Buat gambar OG 1200x630px -->
+    
+    <!-- ✅ TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NewsCEO - News & Entertainment">
+    <meta name="twitter:description" content="Breaking news, politics, and celebrity updates from NewsCEO.">
+    
+    <!-- ✅ FAVICON (PENTING!) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- ✅ SCHEMA MARKUP (Wajib untuk Situs Berita) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "name": "NewsCEO",
+      "url": "https://newsceo.github.io/news/",
+      "logo": "https://newsceo.github.io/news/favicon.png",
+      "sameAs": [
+        "https://twitter.com/newsceo",
+        "https://facebook.com/newsceo"
+      ]
+    }
+    </script>
+
+    <style>
+        /* --- CORE VARIABLES & RESET --- */
+        :root {
+            --primary: #ff6b35;
+            --secondary: #d4af37;
+            --dark-bg: #0f0c29;
+            --text-main: #ffffff;
+            --text-sub: #cccccc;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        
+        body { 
+            font-family: 'Inter', sans-serif !important; 
+            background-color: var(--dark-bg); 
+            color: var(--text-main); 
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- CONSTANT SPEED PING-PONG BACKGROUND --- */
+        .background-art {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #1a0b2e 0%, #2b1055 100%);
+        }
+
+        .panorama-wrapper {
+            position: absolute; top: 0; left: 0; height: 100%;
+            width: 200%;
+            display: flex;
+            will-change: transform;
+        }
+
+        .panorama-slide {
+            width: 50%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.65) contrast(1.15) saturate(1.2);
+        }
+
+        .panorama-slide:nth-child(2) { transform: scaleX(-1); }
+
+        @keyframes pingPongSlide {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        .panorama-wrapper { animation: pingPongSlide 100s linear infinite; }
+
+        .background-overlay {
+            position: absolute; inset: 0; z-index: -1;
+            background: radial-gradient(circle at center, transparent 15%, rgba(15, 12, 41, 0.9) 100%);
+            pointer-events: none;
+        }
+
+        #particle-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
+        }
+
+        /* --- UI COMPONENTS --- */
+        .progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px; 
+            background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+            background-size: 400% 400%;
+            animation: gradientMove 3s ease infinite;
+            width: 0%; z-index: 1000; transition: width 0.1s;
+        }
+        @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+        .premium-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(15, 12, 41, 0.6); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border); padding: 1.2rem 0;
+        }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* ✅ BRAND LOGO DIUBAH */
+        .brand-logo {
+            font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            background: linear-gradient(90deg, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .hero-section { padding: 12rem 2rem 6rem; text-align: center; position: relative; z-index: 1; }
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-subtitle { font-size: 1.2rem; color: var(--text-sub); max-width: 600px; margin: 0 auto; }
+
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem 8rem; position: relative; z-index: 1; }
+        .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; perspective: 1000px; }
+
+        .card-wrapper {
+            position: relative; width: 100%; height: 520px;
+            border-radius: 24px; overflow: hidden; transition: var(--transition-smooth);
+            transform-style: preserve-3d; opacity: 0; transform: translateY(30px);
+            cursor: pointer;
+        }
+        .card-wrapper.visible { opacity: 1; transform: translateY(0); }
+
+        .card-wrapper::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(#fd004c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c);
+            animation: spin 4s linear infinite; z-index: 0; opacity: 0; transition: opacity 0.3s;
+        }
+        .card-wrapper:hover::before { opacity: 1; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .post-card {
+            position: relative; width: 100%; height: 100%; 
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border-radius: 24px; z-index: 1;
+            display: flex; flex-direction: column; overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-image-wrap { 
+            height: 65%; width: 100%; overflow: hidden; position: relative; 
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+        .card-image-wrap img { 
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; 
+            filter: brightness(0.9) contrast(1.1);
+        }
+        .card-wrapper:hover .card-image-wrap img { transform: scale(1.1); filter: brightness(1.1) contrast(1.2); }
+
+        .floating-tag {
+            position: absolute; top: 20px; left: 20px; z-index: 2;
+            font-size: 0.65rem; font-weight: 800; color: #fff; text-transform: uppercase;
+            letter-spacing: 1px; padding: 6px 14px; border-radius: 50px;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .card-body { 
+            padding: 1.5rem 2rem 2rem; flex-grow: 1; display: flex; flex-direction: column; 
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+        
+        .post-title { 
+            font-size: 1.5rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.3; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #fff;
+        }
+        
+        .post-snippet { 
+            font-size: 0.85rem; color: var(--text-sub); margin-bottom: 1.5rem; line-height: 1.6; 
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        
+        .read-more {
+            margin-top: auto; text-decoration: none; color: #fff; font-weight: 600; font-size: 0.9rem;
+            display: inline-flex; align-items: center; gap: 8px; transition: gap 0.3s;
+            padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        .card-wrapper:hover .read-more { gap: 12px; color: var(--primary); }
+
+        /* ✅ FOOTER DIUBAH */
+        .premium-footer { text-align: center; padding: 3rem; color: #666; font-size: 0.8rem; position: relative; z-index: 1; }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 8rem 1.5rem 4rem; }
+            .post-grid { grid-template-columns: 1fr; }
+            .card-wrapper { height: 480px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-art">
+        <div class="panorama-wrapper">
+            <div class="panorama-slide"></div>
+            <div class="panorama-slide"></div>
+        </div>
+        <div class="background-overlay"></div>
+    </div>
+    
+    <canvas id="particle-canvas"></canvas>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header class="premium-header">
+        <div class="header-container">
+            <!-- ✅ LOGO TEXT DIUBAH -->
+            <a href="/" class="brand-logo">NewsCEO</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <!-- ✅ HERO TITLE DIUBAH AGAR RELEVAN DENGAN NEWS -->
+        <h1 class="hero-title">Breaking News.<br><span style="color:#fe9000">Real-Time.</span></h1>
+        <p class="hero-subtitle">Your premium source for politics, celebrity updates, and entertainment headlines.</p>
+    </section>
+
+    <main class="content-wrapper">
+        <div class="post-grid" id="dynamic-posts"></div>
+    </main>
+
+    <!-- ✅ COPYRIGHT DIUBAH -->
+    <footer class="premium-footer">
+        <p>&copy; 2026 NewsCEO. All Rights Reserved. | Breaking News & Entertainment</p>
+    </footer>
+
+    <script>
+        // --- 1. DYNAMIC DATA LOADING ---
+        async function loadPosts() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const posts = await response.json();
+                
+                const container = document.getElementById('dynamic-posts');
+                container.innerHTML = ''; 
+
+                posts.forEach((post, index) => {
+                    const cardHTML = `
+                        <div class="card-wrapper" style="animation-delay: ${index * 0.1}s" onclick="window.location.href='${post.link}'">
+                            <article class="post-card">
+                                <div class="card-image-wrap">
+                                    <img src="${post.image}" alt="${post.title}" loading="lazy">
+                                    <span class="floating-tag">${post.tag}</span>
+                                </div>
+                                <div class="card-body">
+                                    <h2 class="post-title">${post.title}</h2>
+                                    <p class="post-snippet">${post.snippet}</p>
+                                    <span class="read-more">Read Article →</span>
+                                </div>
+                            </article>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', cardHTML);
+                });
+
+                initCardAnimations();
+
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                document.getElementById('dynamic-posts').innerHTML = '<p style="text-align:center; color:#fff;">Failed to load content. Please check data.json</p>';
+            }
+        }
+
+        // --- 2. ANIMATION INITIALIZERS ---
+        function initCardAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card-wrapper').forEach(card => observer.observe(card));
+
+            document.querySelectorAll('.card-wrapper').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const xRot = ((y - rect.height / 2) / rect.height) * -10;
+                    const yRot = ((x - rect.width / 2) / rect.width) * 10;
+                    card.style.transform = `perspective(1000px) rotateX(${xRot}deg) rotateY(${yRot}deg) scale(1.02)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+        }
+
+        // --- 3. PARTICLE SYSTEM ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = `rgba(255, 215, 0, ${Math.random() * 0.5})`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 50; i++) particlesArray.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        // --- 4. SCROLL PROGRESS ---
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        });
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            animateParticles();
+            loadPosts();
+        });
+    </script>
+</body>
+</html>
