@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="en-US" prefix="og: https://ogp.me/ns#">
+<html lang="id-ID" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ✅ SEO UTAMA: Ganti Title & Description -->
-    <title>NewsCEO - Breaking News, Politics & Entertainment</title>
-    <meta name="description" content="NewsCEO delivers the latest breaking news, politics, celebrity gossip, and entertainment updates. Your trusted source for headlines and trending stories.">
-    <meta name="keywords" content="breaking news, politics, celebrity news, entertainment, headlines, NewsCEO">
-    <meta name="author" content="NewsCEO">
+    <!-- ✅ SEO UTAMA: Bahasa Indonesia -->
+    <title>BeritaCEO - Berita Terkini, Politik & Hiburan</title>
+    <meta name="description" content="BeritaCEO menyajikan berita terkini, politik, gosip selebriti, dan update hiburan. Sumber terpercaya Anda untuk headline dan cerita trending.">
+    <meta name="keywords" content="berita terkini, politik, berita artis, hiburan, headline, BeritaCEO, indonesia">
+    <meta name="author" content="BeritaCEO">
     <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="geo.region" content="ID">
+    <meta name="geo.placename" content="Indonesia">
     
     <!-- ✅ OPEN GRAPH (Untuk Share di Sosmed) -->
-    <meta property="og:title" content="NewsCEO - Breaking News & Entertainment">
-    <meta property="og:description" content="Latest breaking news, politics, and celebrity updates.">
-    <meta property="og:url" content="https://newsceo.github.io/news/">
+    <meta property="og:title" content="BeritaCEO - Berita Terkini & Hiburan">
+    <meta property="og:description" content="Update terbaru seputar berita nasional, politik, dan selebriti tanah air.">
+    <meta property="og:url" content="https://beritaceo.github.io/berita/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://newsceo.github.io/news/og-image.jpg"> <!-- Buat gambar OG 1200x630px -->
+    <meta property="og:image" content="https://beritaceo.github.io/berita/og-image.jpg">
+    <meta property="og:locale" content="id_ID">
     
     <!-- ✅ TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NewsCEO - News & Entertainment">
-    <meta name="twitter:description" content="Breaking news, politics, and celebrity updates from NewsCEO.">
+    <meta name="twitter:title" content="BeritaCEO - Berita & Hiburan">
+    <meta name="twitter:description" content="Berita breaking news, politik, dan update selebriti dari BeritaCEO.">
     
-    <!-- ✅ FAVICON (PENTING!) -->
+    <!-- ✅ FAVICON -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
@@ -37,12 +41,12 @@
     {
       "@context": "https://schema.org",
       "@type": "NewsMediaOrganization",
-      "name": "NewsCEO",
-      "url": "https://newsceo.github.io/news/",
-      "logo": "https://newsceo.github.io/news/favicon.png",
+      "name": "BeritaCEO",
+      "url": "https://beritaceo.github.io/berita/",
+      "logo": "https://beritaceo.github.io/berita/favicon.png",
       "sameAs": [
-        "https://twitter.com/newsceo",
-        "https://facebook.com/newsceo"
+        "https://twitter.com/beritaceo",
+        "https://facebook.com/beritaceo"
       ]
     }
     </script>
@@ -70,7 +74,7 @@
             min-height: 100vh;
         }
 
-        /* --- CONSTANT SPEED PING-PONG BACKGROUND --- */
+        /* --- BACKGROUND ANIMATION --- */
         .background-art {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
             overflow: hidden;
@@ -87,6 +91,7 @@
         .panorama-slide {
             width: 50%;
             height: 100%;
+            /* Gambar Background Pegunungan/Sunset sesuai preferensi user sebelumnya bisa diganti disini */
             background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -130,7 +135,6 @@
         }
         .header-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
         
-        /* ✅ BRAND LOGO DIUBAH */
         .brand-logo {
             font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
             background: linear-gradient(90deg, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -216,7 +220,6 @@
         }
         .card-wrapper:hover .read-more { gap: 12px; color: var(--primary); }
 
-        /* ✅ FOOTER DIUBAH */
         .premium-footer { text-align: center; padding: 3rem; color: #666; font-size: 0.8rem; position: relative; z-index: 1; }
 
         @media (max-width: 768px) {
@@ -241,24 +244,21 @@
 
     <header class="premium-header">
         <div class="header-container">
-            <!-- ✅ LOGO TEXT DIUBAH -->
-            <a href="/" class="brand-logo">NewsCEO</a>
+            <a href="/" class="brand-logo">BeritaCEO</a>
         </div>
     </header>
 
     <section class="hero-section">
-        <!-- ✅ HERO TITLE DIUBAH AGAR RELEVAN DENGAN NEWS -->
-        <h1 class="hero-title">Breaking News.<br><span style="color:#fe9000">Real-Time.</span></h1>
-        <p class="hero-subtitle">Your premium source for politics, celebrity updates, and entertainment headlines.</p>
+        <h1 class="hero-title">Berita Terkini.<br><span style="color:#fe9000">Real-Time.</span></h1>
+        <p class="hero-subtitle">Sumber premium Anda untuk politik, update selebriti, dan headline hiburan tanah air.</p>
     </section>
 
     <main class="content-wrapper">
         <div class="post-grid" id="dynamic-posts"></div>
     </main>
 
-    <!-- ✅ COPYRIGHT DIUBAH -->
     <footer class="premium-footer">
-        <p>&copy; 2026 NewsCEO. All Rights Reserved. | Breaking News & Entertainment</p>
+        <p>&copy; 2026 BeritaCEO. Hak Cipta Dilindungi Undang-Undang. | Berita Terkini & Hiburan</p>
     </footer>
 
     <script>
@@ -283,7 +283,7 @@
                                 <div class="card-body">
                                     <h2 class="post-title">${post.title}</h2>
                                     <p class="post-snippet">${post.snippet}</p>
-                                    <span class="read-more">Read Article →</span>
+                                    <span class="read-more">Baca Selengkapnya →</span>
                                 </div>
                             </article>
                         </div>
@@ -295,7 +295,7 @@
 
             } catch (error) {
                 console.error('Error loading posts:', error);
-                document.getElementById('dynamic-posts').innerHTML = '<p style="text-align:center; color:#fff;">Failed to load content. Please check data.json</p>';
+                document.getElementById('dynamic-posts').innerHTML = '<p style="text-align:center; color:#fff;">Gagal memuat konten. Silakan periksa data.json</p>';
             }
         }
 
