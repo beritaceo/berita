@@ -1,6 +1,6 @@
 [
     {
-        "image": "https://awsimages.detik.net.id/community/media/visual/2026/06/12/presiden-as-donald-trump-1781253590383_169.jpeg?w=700&q=90",
+        "image": "https://images.unsplash.com/photo-1529101091760-61df52868696?q=80&w=2000&auto=format&fit=crop",
         "alt": "Breaking News: Kesepakatan Damai AS",
         "tag": "Politik",
         "title": "Breaking News: Kesepakatan Damai AS",
@@ -8,7 +8,7 @@
         "description": "Trump mengumumkan penandatanganan kesepakatan damai hari ini.",
         "snippet": "Trump mengumumkan penandatanganan kesepakatan damai hari ini.",
         "keywords": "breaking, news:, kesepakatan, damai, politik, pemerintahan, berita, terkini",
-        "date": "2026-06-13T22:58:22.563Z",
+        "date": "2026-06-13T23:03:44.548Z",
         "schema": {
             "@context": "https://schema.org",
             "@type": "NewsArticle",
@@ -16,8 +16,8 @@
             "description": "Trump mengumumkan penandatanganan kesepakatan damai hari ini.",
             "image": "https://images.unsplash.com/photo-1529101091760-61df52868696?q=80&w=2000&auto=format&fit=crop",
             "url": "https://beritaceo.github.io/berita/posts/kesepakatan-bersejarah.html",
-            "datePublished": "2026-06-13T22:58:22.563Z",
-            "dateModified": "2026-06-13T22:58:22.563Z",
+            "datePublished": "2026-06-13T23:03:44.548Z",
+            "dateModified": "2026-06-13T23:03:44.548Z",
             "author": {
                 "@type": "Organization",
                 "name": "BeritaCEO"
