@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piala Dunia 2026: Swiss Ungguli Qatar di Babak Pertama | detikSport Premium</title>
+    
+    <!-- Google Fonts: Inter & Playfair Display for Premium Feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0a0b10;
+            --bg-card: #14161f;
+            --accent-red: #e63946; /* Swiss Red */
+            --accent-maroon: #720e1e; /* Qatar Maroon */
+            --text-primary: #ffffff;
+            --text-secondary: #a0a5b5;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --gradient-hero: linear-gradient(180deg, rgba(10,11,16,0) 0%, rgba(10,11,16,1) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 11, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+
+        .logo span { color: var(--accent-red); }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 4rem;
+            margin-top: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Placeholder for main match photo */
+            background: url('https://images.unsplash.com/photo-1518605348416-e4d526b0c784?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            z-index: -2;
+            filter: brightness(0.6);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 70%;
+            background: var(--gradient-hero);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        .badge-live {
+            display: inline-block;
+            background: var(--accent-red);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: #333;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        /* --- Main Content Layout --- */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 4rem;
+        }
+
+        article p {
+            font-size: 1.15rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        article strong { color: white; font-weight: 600; }
+
+        /* --- Custom Illustrations & Media Blocks --- */
+        .media-block {
+            margin: 3rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+
+        .media-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .media-block:hover img { transform: scale(1.02); }
+
+        .caption {
+            padding: 1rem 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Scoreboard Widget --- */
+        .score-widget {
+            background: linear-gradient(135deg, #1a1d29 0%, #14161f 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .match-status {
+            color: var(--accent-red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .teams-score {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .team { text-align: center; }
+        .team-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .team-flag { font-size: 2rem; margin-bottom: 0.5rem; display: block; }
+        
+        .score-display {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            padding: 0 2rem;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* --- Lineup Table --- */
+        .lineup-section {
+            margin-top: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-red);
+            padding-left: 1rem;
+        }
+
+        .lineup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .lineup-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .lineup-card.qatar { border-top: 3px solid var(--accent-maroon); }
+        .lineup-card.swiss { border-top: 3px solid var(--accent-red); }
+
+        .lineup-header {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .player-list { list-style: none; }
+        .player-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+        .player-list li:last-child { border-bottom: none; }
+        .pos-tag { 
+            font-size: 0.7rem; 
+            background: rgba(255,255,255,0.1); 
+            padding: 2px 6px; 
+            border-radius: 4px; 
+            color: white;
+        }
+
+        /* --- Sidebar --- */
+        aside {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .related-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .related-item:hover { opacity: 0.8; }
+        
+        .related-thumb {
+            width: 80px; height: 60px;
+            background: #222;
+            border-radius: 8px;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .related-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 0.3rem;
+        }
+
+        .related-text span {
+            font-size: 0.75rem;
+            color: var(--accent-red);
+        }
+
+        /* --- Video Embed Style --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin: 3rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .content-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+            .lineup-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+            .hero { height: 60vh; }
+            aside { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">detik<span>Sport</span></div>
+            <nav class="nav-links">
+                <a href="#">Match Center</a>
+                <a href="#">News</a>
+                <a href="#">Stats</a>
+                <a href="#"><i class="fas fa-search"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Main Image -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-live"><i class="fas fa-circle" style="font-size:8px; margin-right:5px;"></i> Live Report</span>
+            <h1>Piala Dunia 2026: Swiss Ungguli Qatar di Babak Pertama</h1>
+            <div class="meta-info">
+                <div>
+                    <span class="author-avatar"></span>
+                    <strong>Randy Prasatya</strong> - detikSport
+                </div>
+                <div><i class="far fa-clock"></i> Minggu, 14 Jun 2026 03:00 WIB</div>
+                <div><i class="fas fa-map-marker-alt"></i> San Francisco</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        
+        <!-- Article Body -->
+        <main>
+            <!-- Lead Paragraph -->
+            <p style="font-size: 1.35rem; color: white; font-weight: 400;">
+                <strong>San Francisco</strong> - Qatar dan Swiss saling berhadapan di matchday pertama Grup B Piala Dunia 2026. Pasukan Murat Yakin memimpin 1-0 di babak pertama dalam laga yang penuh tekanan di Levi's Stadium.
+            </p>
+
+            <!-- Scoreboard Widget -->
+            <div class="score-widget">
+                <div class="match-status">Babak Pertama Berakhir</div>
+                <div class="teams-score">
+                    <div class="team">
+                        <span class="team-flag">🇶🇦</span>
+                        <div class="team-name">QATAR</div>
+                    </div>
+                    <div class="score-display">0 - 1</div>
+                    <div class="team">
+                        <span class="team-flag">🇨</span>
+                        <div class="team-name">SWISS</div>
+                    </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                     Embolo 17' (P)
+                </div>
+            </div>
+
+            <article>
+                <p>Qatar vs Swiss berlangsung di Levi's Stadium, Santa Clara, Minggu (14/6/2026) dini hari WIB. Qatar hampir mencetak gol di menit kedua lewat Edmilson Junior yang langsung menguji konsentrasi pertahanan Swiss.</p>
+
+                <!-- Generated Illustration 1: Match Action -->
+                <div class="media-block">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000&auto=format&fit=crop" alt="Aksi Pertandingan Swiss vs Qatar">
+                    <div class="caption">
+                        <span><i class="fas fa-camera"></i> Ilustrasi: Aksi seru di lini tengah saat Swiss mendominasi penguasaan bola.</span>
+                        <span>FIFA World Cup 2026</span>
+                    </div>
+                </div>
+
+                <p>Swiss gantian mengancam di menit kelima. Dan Ndoye menerima umpan terobosan dan langsung melepaskan tembakan, namun bola bisa ditepis kiper Mahmud Abunada dengan sigap.</p>
+
+                <p>Ndoye kembali hampir mencetak gol di menit kesepuluh. Kali ini bola tembakannya dari hasil umpan tarik masih melebar dari target, membuat suporter Swiss di tribun menahan napas.</p>
+
+                <!-- Highlight Quote / Key Moment -->
+                <div style="background: rgba(230, 57, 70, 0.1); border-left: 4px solid var(--accent-red); padding: 1.5rem; margin: 2.5rem 0; border-radius: 0 8px 8px 0;">
+                    <p style="margin:0; font-style: italic; color: white; font-family: 'Playfair Display', serif; font-size: 1.3rem;">
+                        "Swiss mendapatkan hadiah penalti setelah Abunada melanggar Remo Freuler. Breel Embolo maju sebagai eksekutor dan membawa Swiss memimpin 1-0 di menit ke-17."
+                    </p>
+                </div>
+
+                <p>Swiss punya beberapa peluang lainnya. Sejauh ini pasukan Murat Yakin gagal menambah gol karena Abunada masih tampil sip di gawang Qatar, melakukan penyelamatan-penyelamatan krusial.</p>
+
+                <!-- Generated Illustration 2: Goalkeeper Save -->
+                <div class="media-block">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=2000&auto=format&fit=crop" alt="Penyelamatan Kiper Qatar">
+                    <div class="caption">
+                        <span><i class="fas fa-shield-alt"></i> Mahmud Abunada tampil heroik menepis upaya Swiss.</span>
+                        <span>Levi's Stadium</span>
+                    </div>
+                </div>
+
+                <p>Edmilson hampir merobek gawang Qatar di menit ke-42. Upayanya itu masih digagalkan oleh kaki Gregor Kobel yang keluar tepat waktu untuk memblok sudut tembakan tajam.</p>
+
+                <p>Swiss belum bisa menambah gol. Skor 1-0 tetap bertahan sampai turun minum, memberikan keuntungan tipis bagi tim tamu jelang babak kedua.</p>
+
+                <!-- Lineups Section -->
+                <div class="lineup-section">
+                    <h2 class="section-title">Susunan Pemain</h2>
+                    <div class="lineup-grid">
+                        
+                        <!-- Qatar Lineup -->
+                        <div class="lineup-card qatar">
+                            <div class="lineup-header">
+                                <span style="color: var(--accent-maroon);">🇶🇦</span> QATAR (4-3-3)
+                            </div>
+                            <ul class="player-list">
+                                <li><span>GK</span> <span>Mahmud Abunada</span></li>
+                                <li><span>DF</span> <span>Al-Oui</span></li>
+                                <li><span>DF</span> <span>Pedro Miguel</span></li>
+                                <li><span>DF</span> <span>Khoukhi</span></li>
+                                <li><span>DF</span> <span>Ahmed</span></li>
+                                <li><span>MF</span> <span>Laye</span></li>
+                                <li><span>MF</span> <span>Gaber</span></li>
+                                <li><span>MF</span> <span>Madibo</span></li>
+                                <li><span>FW</span> <span>Abdurisag</span></li>
+                                <li><span>FW</span> <span>Edmilson Junior</span></li>
+                                <li><span>FW</span> <span>Akram Afif</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Swiss Lineup -->
+                        <div class="lineup-card swiss">
+                            <div class="lineup-header">
+                                <span style="color: var(--accent-red);">🇨🇭</span> SWISS (3-4-2-1)
+                            </div>
+                            <ul class="player-list">
+                                <li><span>GK</span> <span>Gregor Kobel</span></li>
+                                <li><span>DF</span> <span>Manuel Akanji</span></li>
+                                <li><span>DF</span> <span>Nico Elvedi</span></li>
+                                <li><span>DF</span> <span>Ricardo Rodríguez</span></li>
+                                <li><span>MF</span> <span>Michel Aebischer</span></li>
+                                <li><span>MF</span> <span>Denis Zakaria</span></li>
+                                <li><span>MF</span> <span>Remo Freuler</span></li>
+                                <li><span>MF</span> <span>Granit Xhaka</span></li>
+                                <li><span>AM</span> <span>Dan Ndoye</span></li>
+                                <li><span>AM</span> <span>Renato Vargas</span></li>
+                                <li><span>ST</span> <span>Breel Embolo</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generated Illustration 3: Tactical Board -->
+                <div class="media-block" style="margin-top: 2rem;">
+                    <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2000&auto=format&fit=crop" alt="Analisis Taktikal">
+                    <div class="caption">
+                        <span><i class="fas fa-chess-board"></i> Peta pergerakan pemain Swiss yang lebih agresif di babak pertama.</span>
+                        <span>Tactical Analysis</span>
+                    </div>
+                </div>
+
+            </article>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9rem;">
+                <p><strong>Reporter:</strong> Randy Prasatya | <strong>Editor:</strong> Yana Listiana</p>
+                <div style="margin-top: 1rem;">
+                    <span style="background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; margin-right: 5px;">#TimnasSwiss</span>
+                    <span style="background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; margin-right: 5px;">#TimnasQatar</span>
+                    <span style="background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px;">#PialaDunia2026</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <div class="widget-title">Berita Terkait</div>
+                
+                <div class="related-item">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0565c6a?w=200&h=150&fit=crop" class="related-thumb" alt="Lopetegui">
+                    <div class="related-text">
+                        <h4>Lopetegui Akhirnya 'Debut' di Piala Dunia usai Menanti Bertahun-tahun</h4>
+                        <span>Bola Dunia</span>
+                    </div>
+                </div>
+
+                <div class="related-item">
+                    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=200&h=150&fit=crop" class="related-thumb" alt="Jadwal Siaran">
+                    <div class="related-text">
+                        <h4>Jadwal Siaran Langsung Qatar vs Swiss di Piala Dunia 2026</h4>
+                        <span>Jadwal & Hasil</span>
+                    </div>
+                </div>
+
+                <div class="related-item">
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=200&h=150&fit=crop" class="related-thumb" alt="Xhaka">
+                    <div class="related-text">
+                        <h4>Sukses di Sunderland, Granit Xhaka Bisa Gendong Swiss?</h4>
+                        <span>Analisis Pemain</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget" style="background: linear-gradient(135deg, #1e202e 0%, #14161f 100%);">
+                <div class="widget-title">Klasemen Grup B</div>
+                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                    <tr style="color: var(--text-secondary); border-bottom: 1px solid var(--border-color);">
+                        <th style="text-align:left; padding: 8px 0;">Tim</th>
+                        <th style="text-align:center;">M</th>
+                        <th style="text-align:center;">Poin</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                        <td style="padding: 10px 0; display:flex; align-items:center; gap:8px;">🇨🇭 Swiss</td>
+                        <td style="text-align:center;">1</td>
+                        <td style="text-align:center; color:white; font-weight:bold;">3</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                        <td style="padding: 10px 0; display:flex; align-items:center; gap:8px;">🇦 Qatar</td>
+                        <td style="text-align:center;">1</td>
+                        <td style="text-align:center; color:white; font-weight:bold;">0</td>
+                    </tr>
+                </table>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer Simple -->
+    <footer style="background: #050608; padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--border-color); margin-top: 4rem;">
+        <div class="logo" style="margin-bottom: 1rem;">detik<span>Sport</span></div>
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">&copy; 2026 detikcom. All rights reserved. World Cup Coverage.</p>
+    </footer>
+
+</body>
+</html>
